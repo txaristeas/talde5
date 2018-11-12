@@ -161,6 +161,7 @@
                       }
                       else {
                         echo "Usuario y/o contraseña mal introducidos.  <br/>";
+  header( "Refresh:2; url=index1.php", true, 303);
 
                       }
                     
