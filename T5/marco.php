@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link href="Plantilla.css" rel="stylesheet" type="text/css"/>
+    <link href="PlantillaEntrada.css" rel="stylesheet" type="text/css"/>
     <link href="estilos1.css" rel="stylesheet" type="text/css"/>
   </head>
   <body>
