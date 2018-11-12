@@ -69,6 +69,7 @@
   <a href="logout.php">Cerrar Sesión</a>
 <?php   
     }else {
+
 ?>
       <h4 id="regis" >
 <?php
@@ -81,17 +82,21 @@
 <?php
     }
   } else {
+    //Botones PARA REGISTRASE O CREAR UNA CUENTA    
 ?>
 
       <h4 id="regis" ><a href="Registrarse.php">Sign in</a> or >
 
-   <button onclick="mostrarCuadro()">Log in</button>
+   <button onclick="mostrarCuadro();">Log in</button>
   </h4> 
-
+<?php 
+          if(!isset($_POST['enviar'])){   
+        ?>
   <div id="cajalogin">
   <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
       <p>Iniciar sesión</p>
-      <button onclick="ocultarCuadro()">X</button>
+      <button onclick="ocultarCuadro();">X</button>
+
     
     <input class="input-login" type="text" name="username" id="username" placeholder="Usuario">
   
@@ -102,9 +107,10 @@
   </form>
 
 </div>
-</header>
+
 
 <?php 
+} else {
   try  { $connect= new mysqli("localhost","root","","proyecto_T5");
               
             
@@ -121,13 +127,13 @@
           if (mysqli_num_rows($resultado) == 1){
                     while ($row =mysqli_fetch_array($resultado, MYSQLI_ASSOC)) {
     
-              
+             
              
                     include 'Encrypt.php';
                     $resultado = $row['Pasahitza'];
 
                       $Pasahitza = encrypt($Pasahitza,$Nick);
-                    
+                      
 
                         if ($row['Pasahitza'] == $Pasahitza ) {
                       
@@ -154,25 +160,32 @@
 
                       }
                       else {
-                        echo "Usuario y/o contraseña mal introducidos. <br/>";
+                        echo "Usuario y/o contraseña mal introducidos.  <br/>";
+
                       }
                     
             }
           }else {
                   echo "Usuario y/o contraseña mal introducidos. <br/>";
+                  header( "Refresh:2; url=index1.php", true, 303);
+
                 }
               }  catch (PDOException $e) { 
             echo "conexion fallida. <br/>" . $e->getMessage();
         }
-
-   
+  }
           
+?>
+<?php
+    }
+  
+    //Botones PARA REGISTRASE O CREAR UNA CUENTA    
 ?>
       <!--<nav>
 
       </nav>-->
     </header>
-   <section>
+   
 <?php 
  try  { $connect= new mysqli("localhost","root","","proyecto_T5");
             echo "conexion exitosa. <br/>"; 
@@ -191,7 +204,7 @@
 
           }  catch (PDOException $e) { 
         echo "conexion fallida. <br/>" . $e->getMessage();
-}
+                                      }
 //escripe los resltados del select
   ?>
  
@@ -234,8 +247,7 @@ $IdSarrera=$row['IdSarrera'];
  </section>
 
 
-     </section> 
-    
+     
      
 
 

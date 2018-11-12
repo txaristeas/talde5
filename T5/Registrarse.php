@@ -1,5 +1,6 @@
 <?php 
 session_start();
+ error_reporting(0);
 ?>
 <!DOCTYPE html>
 <html>
@@ -29,6 +30,7 @@ session_start();
                       <input type ="text"  name="Adina"required /> <br/><br/>
                        Pasahitza :<br>
                       <input type ="text"  name="Pasahitza" required/> <br/><br/>
+                      
                       <?php echo $_SESSION['admin'];?>
                       <?php if ($_SESSION['admin']==1){ ?>
                         

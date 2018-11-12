@@ -9,7 +9,7 @@
         <?php 
           if(!isset($_POST['aceptar'])){   
         ?>
-            <form action="TrabajoSarrerakInsert.php" method="post">
+            <form action="TrabajoSarrerakInsert.php" method="post" enctype="multipart/form-data">
               
             Titulo :<br>
               <input type ="text"  name="Tituloak"/> <br/><br/>
@@ -34,6 +34,9 @@
               <input type ="text"  name=" Estrellas"/> <br/><br/>
             Contacto
               <input type ="text"  name=" Contacto"/> <br/><br/>
+               imagen
+              <input type ="text"  name=" imagen"/> <br/><br/>
+             
 
 
 
@@ -60,6 +63,10 @@
             $Servicios= $_POST ['Servicios'];
             $Estrellas= $_POST ['Estrellas'];
             $Contacto= $_POST ['Contacto'];
+            $imagen= $_POST ['imagen'];
+
+            
+          
 
 echo "conexion exitosa. <br/>"; 
 
@@ -68,8 +75,9 @@ echo "conexion exitosa. <br/>";
 
 
 
-            $consulta="INSERT INTO Sarrerak( Tituloak, Gaia, Describapena , Bisitak, Data, Especialidades, Jefe_de_cocina, Localizacion, Medios_de_pago, Precios_medios, Servicios, Estrellas, Contacto) VALUES ('".$Tituloak."', '".$Gaia."', '".$Describapena."', '".$Bisitak."', curdate(), '".$Especialidades."', '".$Jefedecocina."', '".$Localizacion."', '".$Mediosdepago."', '".$Preciosmedios."', '".$Servicios."', '".$Estrellas."', '".$Contacto."')";
+            $consulta="INSERT INTO Sarrerak( Tituloak, Gaia, Describapena , Bisitak, Data, Especialidades, Jefe_de_cocina, Localizacion, Medios_de_pago, Precios_medios, Servicios, Estrellas, Contacto, imagenes) VALUES ('".$Tituloak."', '".$Gaia."', '".$Describapena."', '".$Bisitak."', curdate(), '".$Especialidades."', '".$Jefedecocina."', '".$Localizacion."', '".$Mediosdepago."', '".$Preciosmedios."', '".$Servicios."', '".$Estrellas."', '".$Contacto."', '".$imagen."')";
             echo "$consulta";
+            echo $ubicacion;
                $resultado = $connect-> query($consulta);
               if ($resultado) {
 //comprobar que a realizado la conexion y guarda los datos
