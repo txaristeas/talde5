@@ -1,43 +1,11 @@
 <?php 
 session_start();
- error_reporting(0);
 ?>
 <!DOCTYPE html>
 <html>
   <head>
           <link href="css/Plantilla.css"
       rel="stylesheet" type="text/css"/>
-
-      <script language="text/javascript">
-function comprobar()
-{
-   var nick = document.formu.Nick.value;
-   var adina = document.formu.Adina.value;
-   var pasahitza = document.formu.Pasahitza.value;
-   if (nick.length > 20)
-   {
-      alert("Tu nick es demasiado largo. Redúcelo.");
-      document.getElementById("aceptar").disabled =true;
-      return false;
-   }
-   
-   if (adina <= 13 )
-   {
-      alert("Si tienes menos de 13 años, no puedes ver este blog.");
-      document.getElementById("aceptar").disabled =true;
-      
-   }
-   if (pasahitza.length > 11 )
-   {
-      alert("Contraseña demasiado larga. Redúcela a menos de 11 carácteres.");
-      document.getElementById("aceptar").disabled =true;
-     
-   }
-   document.getElementById("aceptar").disabled =false;
-   
-   return true;
-}
-</script>
     </head>
     <body>
     	<header>
@@ -46,7 +14,7 @@ function comprobar()
         <?php 
           if(!isset($_POST['aceptar'])){   
         ?>
-            <form action="Registrarse.php" method="post" name="formu" id="formu" >
+            <form action="TrabajoRegistrarse.php" method="post">
               
       Nick :<br>
             <input type ="text"  name="Nick"/> <br/><br/>
@@ -58,10 +26,9 @@ function comprobar()
                   <input type ="text"  name="Abizena" required /> <br/><br/>
                  
                     Adina :<br>
-                      <input type ="text"  name="Adina" required /> <br/><br/>
+                      <input type ="text"  name="Adina"required /> <br/><br/>
                        Pasahitza :<br>
                       <input type ="text"  name="Pasahitza" required/> <br/><br/>
-                      
                       <?php echo $_SESSION['admin'];?>
                       <?php if ($_SESSION['admin']==1){ ?>
                         
@@ -71,7 +38,7 @@ function comprobar()
                       
                      <?php } ?>
 
-                     <input type="submit" name="aceptar" id="aceptar">Aceptar</input>
+                     <button type="submit" name="aceptar">Aceptar</button>
 
             </form>
 
@@ -103,7 +70,6 @@ function comprobar()
               if ($resultado) {
 //comprobar que a realizado la conexion y guarda los datos
               echo "perfil almacenado. <br/>";
-              header("Location: index1.php");
             }
             else {
               echo "error en la ejecución de la consulta. <br/>";

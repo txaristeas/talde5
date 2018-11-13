@@ -1,5 +1,3 @@
-  <!DOCTYPE html>
-<html>
   <head>
           <link href="css/Plantilla.css"
       rel="stylesheet" type="text/css"/>
@@ -11,7 +9,7 @@
         <?php 
           if(!isset($_POST['aceptar'])){   
         ?>
-            <form action="SarrerakInsert.php" method="post" enctype="multipart/form-data">
+            <form action="TrabajoSarrerakInsert.php" method="post">
               
             Titulo :<br>
               <input type ="text"  name="Tituloak"/> <br/><br/>
@@ -36,7 +34,6 @@
               <input type ="text"  name=" Estrellas"/> <br/><br/>
             Contacto
               <input type ="text"  name=" Contacto"/> <br/><br/>
-             
 
 
 
@@ -64,9 +61,6 @@
             $Estrellas= $_POST ['Estrellas'];
             $Contacto= $_POST ['Contacto'];
 
-            
-          
-
 echo "conexion exitosa. <br/>"; 
 
 
@@ -76,12 +70,10 @@ echo "conexion exitosa. <br/>";
 
             $consulta="INSERT INTO Sarrerak( Tituloak, Gaia, Describapena , Bisitak, Data, Especialidades, Jefe_de_cocina, Localizacion, Medios_de_pago, Precios_medios, Servicios, Estrellas, Contacto) VALUES ('".$Tituloak."', '".$Gaia."', '".$Describapena."', '".$Bisitak."', curdate(), '".$Especialidades."', '".$Jefedecocina."', '".$Localizacion."', '".$Mediosdepago."', '".$Preciosmedios."', '".$Servicios."', '".$Estrellas."', '".$Contacto."')";
             echo "$consulta";
-            echo $ubicacion;
                $resultado = $connect-> query($consulta);
               if ($resultado) {
 //comprobar que a realizado la conexion y guarda los datos
               echo "perfil almacenado. <br/>";
-               header("Location: index1.php");
             }
             else {
               echo "error en la ejecución de la consulta. <br/>";
@@ -103,5 +95,5 @@ echo "conexion exitosa. <br/>";
         </footer>
     </body>
 
-    </html>
+    (idSarrera, titulua, gaia, deskribapen laburra, bisitak, data, )
     
