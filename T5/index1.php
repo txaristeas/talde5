@@ -162,7 +162,7 @@
    
 <?php 
  try  { $connect= new mysqli("localhost","root","","proyecto_T5");
-            echo "conexion exitosa. <br/>"; 
+            
             
             
             $consulta="SELECT IdSarrera,Tituloak,Gaia,Describapena FROM Sarrerak ORDER BY Bisitak ASC";
@@ -170,7 +170,7 @@
 
               if ($resultado) {
 //comprobar que a realizado la conexion y guarda los datos
-              echo "datos sacados. <br/>";
+            
             }
             else {
               echo "error en la ejecución de la consulta. <br/>";
@@ -230,7 +230,7 @@ $IdSarrera=$row['IdSarrera'];
 
     <?php 
  try  { $connect= new mysqli("localhost","root","","proyecto_T5");
-            echo "conexion exitosa. <br/>"; 
+           
             
             
             $consulta="SELECT IdSarrera,Tituloak,Data FROM Sarrerak";
@@ -238,7 +238,7 @@ $IdSarrera=$row['IdSarrera'];
 
               if ($resultado) {
 //comprobar que a realizado la conexion y guarda los datos
-              echo "datos sacados. <br/>";
+              
             }
             else {
               echo "error en la ejecución de la consulta. <br/>";
